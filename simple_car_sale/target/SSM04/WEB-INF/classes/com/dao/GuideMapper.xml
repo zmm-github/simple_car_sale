@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+namespace：命名空间，用于隔离sql
+id：唯一标识
+resultType：返回值类型
+#{id}：从传递过来的参数中取出id值
+-->
+<mapper namespace="com.dao.GuideMapper">
+    <!--查询所有故障灯管理数据记录数-->
+    <select id="selectLampCount" resultType="long">
+        select count(*) from lamp
+    </select>
+    <!--查询所有故障灯管理数据-->
+    <select id="selectLamp" resultType="lamp">
+        select *
+        from lamp limit #{startRow},#{pageRow}
+    </select>
+    <!--查询指定故障灯管理数据-->
+    <select id="selectLampById" parameterType="int" resultType="lamp">
+        select *
+        from lamp
+        where id = #{id}
+    </select>
+    <!--添加故障灯管理数据-->
+    <insert id="insertLamp" parameterType="lamp">
+        insert into lamp(image, title, describe,create_time, create_people)
+        values (#{image}, #{title}, #{describe}, #{createTime}, #{createPeople})
+    </insert>
+    <!--删除指定故障灯管理数据-->
+    <delete id="deleteLampById" parameterType="int">
+        delete
+        from lamp
+        where id = #{id}
+    </delete>
+    <!--修改指定故障灯管理数据-->
+    <update id="updateLampById" parameterType="lamp">
+        update lamp
+        set image=#{image},
+            title=#{title},
+            `describe`=#{describe},
+            create_time=#{createTime},
+            create_people=#{createPeople}
+        where id = #{id}
+    </update>
+
+    <!--查询所有爱车讲堂记录数-->
+    <select id="selectLectureHallCount" resultType="long">
+        select count(*) from lecturehall
+    </select>
+    <!--查询所有爱车讲堂数据-->
+    <select id="selectLectureHall" resultType="lectureHall">
+        select *
+        from lecturehall limit #{startRow},#{pageRow}
+    </select>
+    <!--查询指定爱车讲堂数据-->
+    <select id="selectLectureHallById" parameterType="int" resultType="lectureHall">
+        select *
+        from lecturehall
+        where id = #{id}
+    </select>
+    <!--添加爱车讲堂数据-->
+    <insert id="insertLectureHall" parameterType="lectureHall">
+        insert into lecturehall(image, title, describe, create_time, create_people)
+        values (#{image}, #{title}, #{describe}, #{createTime}, #{createPeople})
+    </insert>
+    <!--删除指定爱车讲堂数据-->
+    <delete id="deleteLectureHallById" parameterType="int">
+        delete
+        from lecturehall
+        where id = #{id}
+    </delete>
+    <!--修改指定爱车讲堂数据-->
+    <update id="updateLectureHallById" parameterType="carModels">
+        update lecturehall
+        set image=#{image},
+            title=#{title},
+            describe=#{describe},
+            create_time=#{createTime},
+            create_people=#{createPeople}
+        where id = #{id}
+    </update>
+
+    <!--查询所有用车指南记录数-->
+    <select id="selectGuideCount" resultType="long">
+        select count(*) from guide
+    </select>
+    <!--查询所有用车指南数据-->
+    <select id="selectGuide" resultType="guide">
+        select *
+        from guide limit #{startRow},#{pageRow}
+    </select>
+    <!--查询指定用车指南数据-->
+    <select id="selectGuideById" parameterType="int" resultType="guide">
+        select *
+        from guide
+        where id = #{id}
+    </select>
+    <!--添加用车指南数据-->
+    <insert id="insertGuide" parameterType="guide">
+        insert into guide(question, describe, create_time, create_people)
+        values (#{question}, #{describe}, #{createTime}, #{createPeople})
+    </insert>
+    <!--删除指定用车指南数据-->
+    <delete id="deleteGuideById" parameterType="int">
+        delete
+        from guide
+        where id = #{id}
+    </delete>
+    <!--修改指定用车指南数据-->
+    <update id="updateGuideById" parameterType="guide">
+        update guide
+        set question=#{question},
+            describe=#{describe},
+            create_time=#{createTime},
+            create_people=#{createPeople}
+        where id = #{id}
+    </update>
+</mapper>

@@ -1,0 +1,46 @@
+#head {
+    height: 50px;
+    line-height: 50px;
+    background: url(../img/spriteh.png) 100% 100%;
+    color: #AEAEAE;
+    border: 1px #000000 solid;
+}
+
+#head .left {
+    float: left;
+    margin-left: 15px;
+}
+
+#head .left .userImg {
+    display: inline-block;
+    width: 14px;
+    height: 20px;
+    line-height: 22px;
+    border: 1px #000000 solid;
+    border-radius: 5px;
+    background-color: rgb(84, 84, 84);
+    padding: 2px 6px;
+}
+
+#head .left .txt {
+    color: rgb(221, 221, 221);
+}
+
+#head .left .txt:hover {
+    text-decoration: underline;
+}
+
+#head .right{
+    float: right;
+    margin-right: 15px;
+}
+
+#head .right a{
+    text-decoration: none;
+    color: red;
+    letter-spacing: 2px;
+}
+
+#head .right a:hover{
+    color: firebrick;
+}

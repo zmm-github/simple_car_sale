@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+namespace：命名空间，用于隔离sql
+id：唯一标识
+resultType：返回值类型
+#{id}：从传递过来的参数中取出id值
+-->
+<mapper namespace="com.dao.AdministratorMapper">
+    <!--根据用户名和密码查询指定管理员数据-->
+    <select id="selectAdministratorByUsernameAndPassword" resultType="administrator">
+        select *
+        from administrator
+        where username = #{username}
+          and password = #{password}
+    </select>
+    <!--查询所有管理员数据-->
+    <select id="selectAdministrator" resultType="administrator">
+        select * from administrator limit #{startRow},#{pageRow}
+    </select>
+    <!--根据id查询指定管理员数据-->
+    <select id="selectAdministratorById" resultType="administrator">
+        select *
+        from administrator
+        where id = #{id}
+    </select>
+    <!--添加管理员数据-->
+    <insert id="insertAdministrator" parameterType="administrator">
+        insert into administrator(username, password)
+        values (#{username}, #{password})
+    </insert>
+    <!--修改指定管理员数据-->
+    <update id="updateAdministratorById" parameterType="administrator">
+        update administrator
+        set username=#{username},
+            password=#{password}
+        where id=#{id}
+    </update>
+    <!--删除指定管理员数据-->
+    <delete id="deleteAdministratorById" parameterType="int">
+        delete from administrator where id=#{id}
+    </delete>
+    <!--查询所有管理员记录数-->
+    <select id="selectAdministratorCount" resultType="long">
+        select count(*) from administrator
+    </select>
+</mapper>

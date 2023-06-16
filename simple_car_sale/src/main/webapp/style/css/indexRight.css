@@ -1,0 +1,132 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#content {
+    margin: 20px 60px;
+}
+
+.h3 {
+    height: 32px;
+    line-height: 32px;
+    background-color: rgb(225, 226, 227);
+    padding-left: 10px;
+    position: relative;
+}
+
+.h3 .lab {
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    background: url("../img/slidebuttons.png") left center;
+    vertical-align: text-bottom;
+    position: absolute;
+    right: 10px;
+    top: 6px;
+}
+
+#content h1 {
+    height: 40px;
+    line-height: 40px;
+}
+
+#content h1 img {
+    vertical-align: text-bottom;
+}
+
+#content .left {
+    width: 47%;
+    background-color: rgb(247, 247, 247);
+    float: left;
+    margin: 20px 0;
+    box-shadow: 0px 5px 10px #afaeae;
+}
+
+#content .left .left-content {
+    width: 96%;
+    margin: 10px;
+    float: left;
+}
+
+#content .left .left-content .show {
+    width: 110px;
+    border: 1px rgb(208, 210, 212) solid;
+    border-radius: 5px;
+    float: left;
+    text-align: center;
+    margin: 0 6px;
+}
+
+#content .left .left-content .show img {
+    padding: 5px;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+
+#content .left .left-content .show:hover {
+    transform: scale(1.1);
+}
+
+#content .right {
+    width: 50%;
+    float: right;
+    background-color: rgb(247, 247, 247);
+    margin: 20px 0;
+    box-shadow: 0px 5px 10px #afaeae;
+}
+
+#content .right .right-content table {
+    width: 98%;
+    margin: 0 6px 8px 6px;
+}
+
+#content .right .right-content table thead tr td {
+    color: rgb(109, 109, 109);
+}
+
+#content .right .right-content table tbody {
+    font-size: 13px;
+}
+
+td {
+    height: 30px;
+    border-bottom: 1px rgb(189, 189, 189) solid;
+}
+
+td:hover {
+    border-bottom: 1px rgb(109, 109, 109) solid;
+}
+
+#content .bottom {
+    box-shadow: 0px 5px 10px #afaeae;
+    width: 100%;
+    clear: both;
+}
+
+#content .bottom .bottom-content {
+    background-color: rgb(247, 247, 247);
+    padding: 10px;
+}
+
+h5 {
+    font-size: 18px;
+    color: rgb(90, 86, 86);
+}
+
+#content .bottom .bottom-content ul {
+    margin: 8px 0 8px 30px;
+    color: rgb(109, 109, 109);
+}
+
+#content .bottom .bottom-content ul li a {
+    color: rgb(109, 109, 109);
+    text-decoration: none;
+    line-height: 16px;
+    font-size: 13px;
+}
+
+#content .bottom .bottom-content ul li a:hover {
+    font-size: 16px;
+    color: black;
+}

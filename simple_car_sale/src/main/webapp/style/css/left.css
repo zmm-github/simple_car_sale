@@ -1,0 +1,70 @@
+#sidebar {
+    width: 14%;
+    height: calc(100% - 52px);
+    background-color: rgb(75, 75, 75);
+    float: left;
+}
+
+#sidebar ul li {
+    display: list-item;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    height: 40px;
+    line-height: 40px;
+}
+
+#sidebar>ul>li>a {
+    width: 100%;
+    color: white;
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    /*css中的text-indent用于设置首行缩进，用法如下。*/
+    text-indent: 30px;
+    border-top: 1px #606060 solid;
+    border-bottom: 1px #313131 solid;
+    opacity: 0.6;
+}
+
+#sidebar>ul>li>a>img {
+    display: inline-block;
+    padding-right: 4px;
+    vertical-align: text-bottom;
+}
+
+#sidebar>ul>li>a:hover {
+    background-color: rgb(98, 98, 98);
+    color: white;
+    opacity: 1;
+}
+
+#sidebar>ul>li>.checked {
+    background-color: rgb(98, 98, 98);
+    color: rgb(255, 255, 255);
+    opacity: 1;
+}
+
+#sidebar>ul>li>ul>li {
+    height: 40px;
+}
+
+#sidebar>ul>li>ul>li>a {
+    width: 100%;
+    color: #AAAAAA;
+    display: block;
+    font-size: 13px;
+    text-indent: 55px;
+    background-color: rgb(44, 44, 44);
+}
+
+#sidebar>ul>li>ul>li>a:hover {
+    color: white;
+    opacity: 1;
+}
+
+#sidebar>ul>li>ul {
+    display: none;
+}

@@ -1,0 +1,164 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "新宋体";
+}
+
+#content {
+    margin: 20px 60px;
+}
+
+.h3 {
+    height: 32px;
+    line-height: 32px;
+    background-color: rgb(225, 226, 227);
+    padding-left: 10px;
+    position: relative;
+}
+
+.h3 .lab {
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    background: url("../img/slidebuttons.png") left center;
+    vertical-align: text-bottom;
+    position: absolute;
+    right: 10px;
+    top: 6px;
+}
+
+#content h1 {
+    height: 40px;
+    line-height: 40px;
+}
+
+#content h1 img {
+    vertical-align: text-bottom;
+}
+
+#content .top {
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+    margin: 20px 0;
+    box-shadow: 0px 5px 10px #afaeae;
+    border: 1px #AEAEAE solid;
+}
+
+#content .top .top-content {
+    width: 98%;
+    margin: 10px;
+}
+
+#content .top .top-content .add {
+    text-decoration: none;
+    display: block;
+    width: 110px;
+    border: 1px rgb(208, 210, 212) solid;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 6px;
+    color: rgb(90, 90, 90);
+    font-size: 13px;
+}
+
+#content .top .top-content .add img {
+    padding: 5px;
+}
+
+#content .top .top-content .add:hover {
+    background-color: rgb(219, 220, 222);
+    border: 1px #000000 solid;
+    color: black;
+}
+
+#content .bottom {
+    width: 100%;
+}
+
+#content .bottom {
+    background-color: rgb(247, 247, 247);
+    box-shadow: 0px 5px 10px #afaeae;
+}
+
+#content .bottom .bottom-content {
+    position: relative;
+    padding: 0 0 40px 0;
+}
+
+#content .bottom .bottom-content table {
+    width: 99%;
+    margin: 5px;
+}
+
+#content .bottom .bottom-content table tbody {
+    font-size: 13px;
+}
+
+#content .bottom .bottom-content table tbody tr:nth-child(2n-1) {
+    background-color: rgb(240, 240, 240);
+}
+
+#content .bottom .bottom-content table tbody tr:hover {
+    background-color: rgb(234, 234, 234);
+}
+
+#content .bottom .bottom-content table tbody tr td a {
+    color: rgb(5, 117, 204);
+    text-decoration: underline;
+}
+
+#content .bottom .bottom-content table tbody tr td a:hover {
+    color: black;
+}
+
+td,
+th {
+    height: 30px;
+    border-bottom: 1px rgb(218, 218, 218) solid;
+}
+
+th {
+    text-align: left;
+}
+
+#content .bottom .bottom-content .pagination {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    width: 282px;
+    height: 24px;
+
+}
+
+#content .bottom .bottom-content .pagination a {
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(238, 238, 238);
+    color: black;
+    border: 1px #999999 solid;
+}
+
+#content .bottom .bottom-content .pagination a.upPage, a.nextPage {
+    width: 60px;
+}
+
+#content .bottom .bottom-content .pagination a.headPage, a.pages, a.endPage {
+    width: 40px;
+}
+
+#content .bottom .bottom-content .pagination a:hover {
+    background-color: rgb(218, 218, 218);
+}
+
+#content .bottom .bottom-content .pagination a.pages:hover {
+    background-color: rgb(238, 238, 238);
+}
+/*使超链接不可点击*/
+.disabled{
+    color: red;
+    cursor: pointer;
+    pointer-events: none;
+}

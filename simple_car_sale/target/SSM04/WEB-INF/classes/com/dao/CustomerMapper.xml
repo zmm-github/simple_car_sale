@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+namespace：命名空间，用于隔离sql
+id：唯一标识
+resultType：返回值类型
+#{id}：从传递过来的参数中取出id值
+-->
+<mapper namespace="com.dao.CustomerMapper">
+    <!--查询所有客户管理记录数-->
+    <select id="selectCustomerCount" resultType="long">
+        select count(0) from customer
+    </select>
+    <!--查询所有客户管理数据-->
+    <select id="selectCustomer" resultType="customer">
+        select *
+        from customer limit #{startRow},#{pageRow}
+    </select>
+    <!--查询指定客户管理数据-->
+    <select id="selectCustomerById" parameterType="int" resultType="customer">
+        select *
+        from customer
+        where id = #{id}
+    </select>
+    <!--添加客户管理数据-->
+    <insert id="insertCustomer" parameterType="customer">
+        insert into customer(name, information, location, phone_number, status, application_time)
+        values (#{name}, #{information}, #{location}, #{phoneNumber}, #{status}, #{applicationTime})
+    </insert>
+    <!--删除指定客户管理数据-->
+    <delete id="deleteCustomerById" parameterType="int">
+        delete
+        from customer
+        where id = #{id}
+    </delete>
+    <!--修改指定客户管理数据-->
+    <update id="updateCustomerById" parameterType="customer">
+        update customer
+        set name=#{name},
+            information=#{information},
+            location=#{location},
+            phone_number=#{phoneNumber},
+            status=#{status},
+            application_time=#{applicationTime}
+        where id = #{id}
+    </update>
+
+    <!--查询所有预约记录记录数-->
+    <select id="selectOrderRecordsCount" resultType="long">
+        select count(*) from order_records
+    </select>
+
+    <!--查询所有预约记录数据-->
+    <select id="selectOrderRecords" resultType="orderRecords">
+        select *
+        from order_records limit #{startRow},#{pageRow}
+    </select>
+    <!--查询指定预约记录数据-->
+    <select id="selectOrderRecordsById" parameterType="int" resultType="orderRecords">
+        select *
+        from order_records
+        where id = #{id}
+    </select>
+    <!--添加预约记录数据-->
+    <insert id="insertOrderRecords" parameterType="orderRecords">
+        insert into order_records(name, phone_number, car_series, car_models, arrive_time, message, type, create_time)
+            values (#{name}, #{phoneNumber}, #{carSeries}, #{carModels}, #{arriveTime}, #{message}, #{type},
+                #{createTime})
+    </insert>
+    <!--删除指定预约记录数据-->
+    <delete id="deleteOrderRecordsById" parameterType="int">
+        delete
+        from order_records
+        where id = #{id}
+    </delete>
+    <!--修改指定预约记录数据-->
+    <update id="updateOrderRecordsById" parameterType="orderRecords">
+        update order_records
+        set name=#{name},
+            phone_number=#{phoneNumber},
+            car_series=#{carSeries},
+            car_models=#{carModels},
+            arrive_time=#{arriveTime},
+            message=#{message},
+            type=#{type},
+            create_time=#{createTime}
+        where id = #{id}
+    </update>
+
+    <!--查询所有救援记录记录数-->
+    <select id="selectRescueRecordsCount" resultType="long">
+        select count(*) from rescue_records
+    </select>
+
+    <!--查询所有援救记录数据-->
+    <select id="selectRescueRecords" resultType="rescueRecords">
+        select *
+        from rescue_records limit #{startRow},#{pageRow}
+    </select>
+    <!--查询指定援救记录数据-->
+    <select id="selectRescueRecordsById" parameterType="int" resultType="rescueRecords">
+        select *
+        from rescue_records
+        where id = #{id}
+    </select>
+    <!--添加援救记录数据-->
+    <insert id="insertRescueRecords" parameterType="rescueRecords">
+        insert into rescue_records(name, create_time)
+        values (#{name}, #{createTime})
+    </insert>
+    <!--删除指定援救记录数据-->
+    <delete id="deleteRescueRecordsById" parameterType="int">
+        delete
+        from rescue_records
+        where id = #{id}
+    </delete>
+    <!--修改指定援救记录数据-->
+    <update id="updateRescueRecordsById" parameterType="rescueRecords">
+        update rescue_records
+        set name=#{name},
+            create_time=#{createTime}
+        where id = #{id}
+    </update>
+</mapper>

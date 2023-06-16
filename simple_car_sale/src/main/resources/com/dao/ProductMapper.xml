@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+namespace：命名空间，用于隔离sql
+id：唯一标识
+resultType：返回值类型
+#{id}：从传递过来的参数中取出id值
+-->
+<mapper namespace="com.dao.ProductMapper">
+    <!--查询所有车系记录数-->
+    <select id="selectCarSeriesCount" resultType="long">
+        select count(*)
+        from car_series
+    </select>
+    <!--查询所有车系数据-->
+    <select id="selectCarSeries" resultType="carSeries">
+        select *
+        from car_series limit #{startRow},#{pageRow}
+    </select>
+    <!--查询指定车系数据-->
+    <select id="selectCarSeriesById" parameterType="int" resultType="carSeries">
+        select *
+        from car_series
+        where id = #{id}
+    </select>
+    <!--模糊查询车系数据-->
+    <select id="selectCarSeriesByLike" resultType="carSeries">
+        select *
+        from (select * from car_series where car_name like #{searchName}) a limit #{startRow}, #{pageRow}
+    </select>
+    <!--添加车系数据-->
+    <insert id="insertCarSeries" parameterType="carSeries">
+        insert into car_series(car_name, money, create_time, create_people)
+        values (#{carName}, #{money}, #{createTime}, #{createPeople})
+    </insert>
+    <!--删除指定车系数据-->
+    <delete id="deleteCarSeriesById" parameterType="int">
+        delete
+        from car_series
+        where id = #{id}
+    </delete>
+    <!--修改指定车系数据-->
+    <update id="updateCarSeriesById" parameterType="carSeries">
+        update car_series
+        set car_name=#{carName},
+            money=#{money},
+            create_time=#{createTime},
+            create_people=#{createPeople}
+        where id = #{id}
+    </update>
+
+    <!--查询所有车型记录数-->
+    <select id="selectCarModelsCount" resultType="long">
+        select count(*)
+        from car_models
+    </select>
+    <!--查询所有车型数据-->
+    <select id="selectCarModels" resultType="carModels">
+        select *
+        from car_models limit #{startRow},#{pageRow}
+    </select>
+    <!--查询指定车型数据-->
+    <select id="selectCarModelsById" parameterType="int" resultType="carModels">
+        select *
+        from car_models
+        where id = #{id}
+    </select>
+    <!--添加车型数据-->
+    <insert id="insertCarModels" parameterType="carModels">
+        insert into car_models(image, car_name, money, create_time, create_people)
+        values (#{image}, #{carName}, #{money}, #{createTime}, #{createPeople})
+    </insert>
+    <!--删除指定车型数据-->
+    <delete id="deleteCarModelsById" parameterType="int">
+        delete
+        from car_models
+        where id = #{id}
+    </delete>
+    <!--修改指定车型数据-->
+    <update id="updateCarModelsById" parameterType="carModels">
+        update car_models
+        set image=#{image}
+          ,car_name=#{carName}
+          , money=#{money}
+          , create_time=#{createTime}
+          , create_people=#{createPeople}
+        where id = #{id}
+    </update>
+
+    <!--查询所有配件管理记录数-->
+    <select id="selectAccessoryCount" resultType="long">
+        select count(*)
+        from accessory
+    </select>
+    <!--查询所有配件管理数据-->
+    <select id="selectAccessory" resultType="accessory">
+        select *
+        from accessory limit #{startRow},#{pageRow}
+    </select>
+    <!--查询指定配件管理数据-->
+    <select id="selectAccessoryById" parameterType="int" resultType="accessory">
+        select *
+        from accessory
+        where id = #{id}
+    </select>
+    <!--添加配件管理数据-->
+    <insert id="insertAccessory" parameterType="accessory">
+        insert into accessory(accessory_name, car_series, money, create_time, create_people)
+        values (#{accessoryName}, #{carSeries}, #{money}, #{createTime}, #{createPeople})
+    </insert>
+    <!--删除指定配件管理数据-->
+    <delete id="deleteAccessoryById" parameterType="int">
+        delete
+        from accessory
+        where id = #{id}
+    </delete>
+    <!--修改指定配件管理数据-->
+    <update id="updateAccessoryById" parameterType="accessory">
+        update accessory
+        set accessory_name=#{accessoryName} car_series=#{carSeries}
+          , money=#{money}
+          , create_time=#{createTime}
+          , create_people=#{createPeople}
+        where id = #{id}
+    </update>
+</mapper>

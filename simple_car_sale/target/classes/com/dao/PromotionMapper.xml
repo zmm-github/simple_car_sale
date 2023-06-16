@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+namespace：命名空间，用于隔离sql
+id：唯一标识
+resultType：返回值类型
+#{id}：从传递过来的参数中取出id值
+-->
+<mapper namespace="com.dao.PromotionMapper">
+    <!--查询所有促销记录数-->
+    <select id="selectPromotionCount" resultType="long">
+        select count(*) from promotion
+    </select>
+
+    <!--查询所有促销信息数据-->
+    <select id="selectPromotion" resultType="promotion">
+        select *
+        from promotion limit #{startRow},#{pageRow}
+    </select>
+    <!--查询指定促销信息数据-->
+    <select id="selectPromotionById" parameterType="int" resultType="promotion">
+        select *
+        from promotion
+        where id = #{id}
+    </select>
+    <!--添加促销信息数据-->
+    <insert id="insertPromotion" parameterType="promotion">
+        insert into promotion(title, describe, image, create_time, create_people)
+        values (#{title}, #{describe}, #{image}, #{createTime}, #{createPeople})
+    </insert>
+    <!--删除指定促销信息数据-->
+    <delete id="deletePromotionById" parameterType="int">
+        delete
+        from promotion
+        where id = #{id}
+    </delete>
+    <!--修改指定促销信息数据-->
+    <update id="updatePromotionById" parameterType="promotion">
+        update promotion
+        set title=#{title},
+            describe=#{describe},
+            image=#{image},
+            create_time=#{createTime},
+            create_people=#{createPeople}
+        where id = #{id}
+    </update>
+</mapper>
